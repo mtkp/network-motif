@@ -1,0 +1,20 @@
+*.class
+build/*
+test/*
+
+### Package files
+*.jar
+
+### Log files
+*.log
+*.csv
+
+### Temp files
+*~
+*.tmp
+*.swp
+*.swo
+*.g6
+
+### OS files
+.DS_Store
