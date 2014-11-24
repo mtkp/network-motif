@@ -4,8 +4,8 @@
 ( test -z $2 ) &&
   echo "usage: run.sh data_file motif_size [--show-results]" &&
   echo "       (default is to not show results)" &&
-  echo "  ex1: run.sh path/to/data 3 4" &&
-  echo "  ex2: run.sh path/to/data 3 2 --show-results" &&
+  echo "  ex1: run.sh path/to/data 3" &&
+  echo "  ex2: run.sh path/to/data 6 --show-results" &&
   exit 1
 
 # execution variables
