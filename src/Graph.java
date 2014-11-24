@@ -118,7 +118,6 @@ public class Graph {
     // parses a data file into an adjacency list representing the graph
     private void parse(String filename) throws IOException {
         Map<String, Integer> nameToIndex = new HashMap<String, Integer>();
-        Map<Integer, String> indexToName = new HashMap<Integer, String>();
 
         BufferedReader reader = new BufferedReader(new FileReader(filename));
         List<String> lines = new ArrayList<String>();
@@ -136,8 +135,8 @@ public class Graph {
         String delimiters = "\\s+"; // one or more whitespace characters
         for (String line:lines) {
             String[] edge = line.split(delimiters);
-            int fromIndex = getOrCreateIndex(edge[0], nameToIndex, indexToName);
-            int toIndex = getOrCreateIndex(edge[1], nameToIndex, indexToName);
+            int fromIndex = getOrCreateIndex(edge[0], nameToIndex);
+            int toIndex   = getOrCreateIndex(edge[1], nameToIndex);
 
             // don't add self edges
             if (fromIndex != toIndex) {
@@ -150,11 +149,9 @@ public class Graph {
     // get index of a node given the node's name
     // create an entry if it does not exist
     private Integer getOrCreateIndex(String nodeName,
-                                     Map<String, Integer> nameToIndex,
-                                     Map<Integer, String> indexToName) {
+                                     Map<String, Integer> nameToIndex) {
         if (!nameToIndex.containsKey(nodeName)) {
             nameToIndex.put(nodeName, adjacencyLists.size());
-            indexToName.put(adjacencyLists.size(), nodeName);
             adjacencyLists.add(new AdjacencyList());
         }
         return nameToIndex.get(nodeName);
