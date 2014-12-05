@@ -61,9 +61,6 @@ public class AdjacencyMatrix {
         byte currentByte = 0;
         for (int col = 1; col < order; col++) {
             for (int row = 0; row < col; row++) {
-
-                // switch to simple loop
-
                 if (hasEdge(row, col)) {
                     currentByte = (byte)(currentByte | (1 << (5 - currentBit)));
                 }
