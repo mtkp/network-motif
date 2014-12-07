@@ -119,6 +119,8 @@ public class Graph {
     private void parse(String filename) throws IOException {
         Map<String, Integer> nameToIndex = new HashMap<String, Integer>();
 
+        // we read in all the data at once only so we can easily randomize it
+        // with Collections.shuffle()
         BufferedReader reader = new BufferedReader(new FileReader(filename));
         List<String> lines = new ArrayList<String>();
         String currentLine = reader.readLine();
